@@ -16,8 +16,8 @@ class CreateQuotesTable extends Migration
             $table->increments('id');
             $table->text('quote');
             $table->string('by');
-            $table->integer('chat');
-            $table->integer('from');
+            $table->bigInteger('chat');
+            $table->bigInteger('from');
             $table->timestamps();
         });
     }

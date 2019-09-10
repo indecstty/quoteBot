@@ -11,13 +11,13 @@
 |
 */
 
-$baseUrl = '/bots/quotes/';
+$baseUrl = '/bots/quoteBot/';
 $token = env('BOT_TOKEN');
-$path = $baseUrl.$token;
 
-$app->get($baseUrl.env('BOT_TOKEN'), function() use ($app) {
+$app->get($baseUrl, 'QuoteController@index');
+$app->get($baseUrl.'delete/{id}', 'QuoteController@delete');
+$app->get($baseUrl.$token, function() use ($app) {
     return $app->welcome();
 });
 
-// $app->get($path, 'QuoteController@processRequest');
-$app->post($baseUrl.env('BOT_TOKEN'), 'QuoteController@processRequest');
+$app->post($baseUrl.$token, 'QuoteController@processRequest');
